@@ -36,6 +36,7 @@ export function AnimatedText({ text, delay = 0 }: AnimatedTextProps) {
                   display: "inline-block",
                   transformStyle: "preserve-3d",
                   transformOrigin: "center bottom",
+                  color: "inherit",
                 }}
               >
                 {char}
