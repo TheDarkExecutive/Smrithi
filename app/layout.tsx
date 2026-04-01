@@ -4,6 +4,7 @@ import { Inter, Geist_Mono, Playfair_Display } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { ThemeProvider } from "@/contexts/theme-context"
 import { LanguageProvider } from "@/contexts/language-context"
+import { ClickRipple } from "@/components/click-ripple"
 import "./globals.css"
 
 const _inter = Inter({ subsets: ["latin"] })
@@ -26,6 +27,7 @@ export default function RootLayout({
       <body className={`font-sans antialiased`}>
         <ThemeProvider>
           <LanguageProvider>
+            <ClickRipple />
             {children}
           </LanguageProvider>
         </ThemeProvider>

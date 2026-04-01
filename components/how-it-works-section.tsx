@@ -99,7 +99,7 @@ export function HowItWorksSection() {
           {steps.map((item, index) => (
             <div
               key={index}
-              className="group p-8 rounded-3xl backdrop-blur-xl bg-white/60 dark:bg-zinc-900/60 border border-white/50 dark:border-zinc-700/50 shadow-lg hover:shadow-xl transition-all duration-300 text-center"
+              className="group p-8 rounded-3xl backdrop-blur-xl bg-zinc-200/50 dark:bg-zinc-800/50 border border-zinc-300/60 dark:border-zinc-600/60 shadow-lg hover:shadow-xl transition-all duration-300 text-center"
             >
               <div className="mb-4">
                 <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
