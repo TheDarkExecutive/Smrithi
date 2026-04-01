@@ -62,7 +62,7 @@ export function HeroSection() {
             height: `${heightVh}vh`,
           }}
         >
-          <video autoPlay loop muted playsInline className="w-full h-full object-cover" src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/af7687fd-f2ad-4f2a-96f0-b56fa7d3769c-08wERpo5U1sktxs1vcRsJW9ueslNZv.mp4" />
+          <video autoPlay loop muted playsInline className="w-full h-full object-cover" src="/images/af7687fd-f2ad-4f2a-96f0-b56fa7d3769c.mp4" />
         </div>
       </div>
 
@@ -75,10 +75,10 @@ export function HeroSection() {
         }}
       >
         <span
-          className="block text-white font-bold text-[28vw] sm:text-[25vw] md:text-[22vw] lg:text-[20vw] tracking-tighter select-none text-center leading-none"
+          className="block text-white font-bold text-[20vw] sm:text-[18vw] md:text-[16vw] lg:text-[14vw] tracking-tighter select-none text-center leading-none"
           style={{ marginBottom: "0" }}
         >
-          HOMIE
+          SMRITHI
         </span>
       </div>
 
@@ -87,9 +87,14 @@ export function HeroSection() {
           <div
             className={`transition-all duration-1000 delay-[800ms] ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"}`}
           >
-            <h1 className="font-serif text-[3.5rem] sm:text-[4.5rem] md:text-[5.5rem] lg:text-[6.5rem] xl:text-[7.5rem] 2xl:text-[8.5rem] font-normal leading-tight mb-6 w-full px-4 max-w-6xl mx-auto text-balance">
-              <AnimatedText text="Find your home away from home" delay={0.3} />
+            <h1 className="font-serif text-[2.5rem] sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5.5rem] xl:text-[6rem] 2xl:text-[7rem] font-normal leading-tight mb-6 w-full px-4 max-w-5xl mx-auto text-balance">
+              <AnimatedText text="A voice companion that adapts to you, not the other way" delay={0.3} />
             </h1>
+            <p
+              className={`text-lg md:text-xl text-white/90 max-w-2xl mx-auto mt-8 transition-all duration-1000 delay-[1200ms] ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+            >
+              One conversational friend that unifies the apps seniors already use
+            </p>
           </div>
         </div>
 
@@ -100,7 +105,7 @@ export function HeroSection() {
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[400px]"
               }`}
             >
-              <img src="/images/iphone-frame.png" alt="Application Homie" className="w-full h-auto relative z-10" />
+              <img src="/images/iphone-frame.png" alt="Smrithi App" className="w-full h-auto relative z-10" />
             </div>
           </div>
         </div>

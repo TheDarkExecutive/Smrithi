@@ -2,34 +2,34 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 
 const faqs = [
   {
-    question: "How do I post a listing on Homie?",
+    question: "How does Smrithi work with existing apps?",
     answer:
-      "It's very simple! Create an account, click 'Post a listing', add photos and a description of your property, set the price and availability. Your listing will be live within minutes after verification.",
+      "Smrithi integrates with platforms like Khyaal, seniorshield, and ALYV through secure APIs. Once connected, Smrithi pulls relevant information and presents it through natural voice conversations. Seniors do not need to open multiple apps or remember different interfaces.",
   },
   {
-    question: "What are the fees for owners?",
+    question: "Does my parent need to be tech-savvy to use Smrithi?",
     answer:
-      "Homie charges a 3% commission only when a rental is confirmed. No listing fees, no mandatory subscription. The Pro plan at $49/month reduces the commission to 2% for multi-property owners.",
+      "Not at all. Smrithi is designed for people who find technology challenging. There are no apps to navigate, no buttons to press, no screens to read. Everything happens through natural conversation. If they can talk, they can use Smrithi.",
   },
   {
-    question: "How are tenants verified?",
+    question: "How does emergency detection work?",
     answer:
-      "Each tenant must provide an ID and proof of income. We verify these documents and assign a trust score. Owners can view the complete profile before accepting a request.",
+      "Smrithi monitors for signs of distress through voice patterns and integrates with seniorshield for fall detection and emergency response. When something seems wrong, Smrithi first checks in with the user through conversation. If needed, it automatically alerts designated family members.",
   },
   {
-    question: "Are payments secure?",
+    question: "What languages does Smrithi support?",
     answer:
-      "Yes, all payments go through our secure platform. Funds are held until check-in confirmation, then released to the owner. In case of disputes, our team intervenes to find a solution.",
+      "Smrithi is built for India and supports Hindi, English, and regional languages. The voice interface adapts to how each person naturally speaks, including mixed language conversations that are common in Indian households.",
   },
   {
-    question: "What does the damage insurance cover?",
+    question: "How is my family member's data protected?",
     answer:
-      "Our included insurance covers material damage up to $5,000 per rental. It protects owners against accidental damage. A $200 deductible applies in case of a claim.",
+      "Privacy is fundamental to Smrithi. Health data stays encrypted and is only shared with explicitly authorized family members. We do not sell data to third parties. Voice conversations are processed securely and are not stored unless the user opts in for improving their experience.",
   },
   {
-    question: "Can I cancel a reservation?",
+    question: "When will Smrithi be available?",
     answer:
-      "Cancellation conditions are set by each owner (flexible, moderate, or strict). Refunds are calculated based on these conditions. Force majeure cases may qualify for a full refund.",
+      "We are currently in development and testing with select families. Join the waitlist to be notified when Smrithi becomes available in your area. Early waitlist members will get priority access.",
   },
 ]
 
@@ -40,7 +40,7 @@ export function FAQSection() {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-normal mb-6 text-balance font-serif">Frequently asked questions</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Everything you need to know about Homie. Have a question not listed? Contact our support.
+            Everything you need to know about Smrithi. Have a question not listed here? Reach out to us.
           </p>
         </div>
 

@@ -51,17 +51,28 @@ export function Header() {
               stroke="currentColor"
               strokeWidth="2"
             >
-              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-              <polyline points="9 22 9 12 15 12 15 22" />
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 16v-4" />
+              <path d="M12 8h.01" />
+              <path d="M8 12a4 4 0 0 1 8 0" />
             </svg>
             <span
               className={`text-lg font-medium tracking-tight transition-colors duration-300 ${isScrolled ? "text-black" : "text-foreground"}`}
             >
-              Homie
+              Smrithi
             </span>
           </a>
 
           <nav className="hidden md:flex items-center gap-8">
+            <a
+              href="#problem"
+              onClick={(e) => handleSmoothScroll(e, "problem")}
+              className={`text-sm transition-colors cursor-pointer ${
+                isScrolled ? "text-zinc-600 hover:text-black" : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              The Problem
+            </a>
             <a
               href="#how-it-works"
               onClick={(e) => handleSmoothScroll(e, "how-it-works")}
@@ -69,7 +80,7 @@ export function Header() {
                 isScrolled ? "text-zinc-600 hover:text-black" : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              Mission
+              How It Works
             </a>
             <a
               href="#features"
@@ -81,22 +92,13 @@ export function Header() {
               Features
             </a>
             <a
-              href="#pricing"
-              onClick={(e) => handleSmoothScroll(e, "pricing")}
+              href="#integrations"
+              onClick={(e) => handleSmoothScroll(e, "integrations")}
               className={`text-sm transition-colors cursor-pointer ${
                 isScrolled ? "text-zinc-600 hover:text-black" : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              Properties
-            </a>
-            <a
-              href="#testimonials"
-              onClick={(e) => handleSmoothScroll(e, "testimonials")}
-              className={`text-sm transition-colors cursor-pointer ${
-                isScrolled ? "text-zinc-600 hover:text-black" : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              Reviews
+              Integrations
             </a>
             <a
               href="#faq"
@@ -110,7 +112,9 @@ export function Header() {
           </nav>
 
           <div className="hidden md:flex items-center gap-1">
-            <button
+            <a
+              href="#waitlist"
+              onClick={(e) => handleSmoothScroll(e, "waitlist")}
               className={`relative flex items-center gap-0 border rounded-full pl-5 pr-1 py-1 transition-all duration-300 group overflow-hidden ${
                 isScrolled ? "border-zinc-300" : "border-border"
               }`}
@@ -125,7 +129,7 @@ export function Header() {
                   isScrolled ? "text-black group-hover:text-white" : "text-foreground group-hover:text-background"
                 }`}
               >
-                List a property
+                Join waitlist
               </span>
               <span className="w-8 h-8 rounded-full flex items-center justify-center relative z-10">
                 <ArrowRight
@@ -139,7 +143,7 @@ export function Header() {
                   }`}
                 />
               </span>
-            </button>
+            </a>
           </div>
 
           <button
@@ -157,13 +161,22 @@ export function Header() {
             }`}
           >
             <a
+              href="#problem"
+              onClick={(e) => handleSmoothScroll(e, "problem")}
+              className={`transition-colors cursor-pointer ${
+                isScrolled ? "text-zinc-600 hover:text-black" : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              The Problem
+            </a>
+            <a
               href="#how-it-works"
               onClick={(e) => handleSmoothScroll(e, "how-it-works")}
               className={`transition-colors cursor-pointer ${
                 isScrolled ? "text-zinc-600 hover:text-black" : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              Mission
+              How It Works
             </a>
             <a
               href="#features"
@@ -175,22 +188,13 @@ export function Header() {
               Features
             </a>
             <a
-              href="#pricing"
-              onClick={(e) => handleSmoothScroll(e, "pricing")}
+              href="#integrations"
+              onClick={(e) => handleSmoothScroll(e, "integrations")}
               className={`transition-colors cursor-pointer ${
                 isScrolled ? "text-zinc-600 hover:text-black" : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              Properties
-            </a>
-            <a
-              href="#testimonials"
-              onClick={(e) => handleSmoothScroll(e, "testimonials")}
-              className={`transition-colors cursor-pointer ${
-                isScrolled ? "text-zinc-600 hover:text-black" : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              Reviews
+              Integrations
             </a>
             <a
               href="#faq"
@@ -204,10 +208,9 @@ export function Header() {
             <div
               className={`flex flex-col gap-3 mt-4 pt-4 border-t ${isScrolled ? "border-zinc-200" : "border-border"}`}
             >
-              <a href="#" className={isScrolled ? "text-black" : "text-foreground"}>
-                Login
-              </a>
-              <button
+              <a
+                href="#waitlist"
+                onClick={(e) => handleSmoothScroll(e, "waitlist")}
                 className={`relative flex items-center gap-0 border rounded-full pl-5 pr-1 py-1 w-fit transition-all duration-300 group overflow-hidden ${
                   isScrolled ? "border-zinc-300" : "border-border"
                 }`}
@@ -222,7 +225,7 @@ export function Header() {
                     isScrolled ? "text-black group-hover:text-white" : "text-foreground group-hover:text-background"
                   }`}
                 >
-                  List a property
+                  Join waitlist
                 </span>
                 <span className="w-8 h-8 rounded-full flex items-center justify-center relative z-10">
                   <ArrowRight
@@ -236,7 +239,7 @@ export function Header() {
                     }`}
                   />
                 </span>
-              </button>
+              </a>
             </div>
           </nav>
         )}
