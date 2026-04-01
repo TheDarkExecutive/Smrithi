@@ -36,7 +36,7 @@ export function FeaturesSection() {
                   </div>
                   <div className="flex-1">
                     <p className="text-sm text-muted-foreground">Smrithi is listening...</p>
-                    <p className="text-foreground font-medium" style={{ fontFamily: "'Times New Roman', Times, serif" }}>&ldquo;Good morning, Amma. Time for your morning walk?&rdquo;</p>
+                    <p className="text-foreground font-medium">&ldquo;Good morning, Amma. Time for your morning walk?&rdquo;</p>
                   </div>
                 </div>
 
@@ -46,7 +46,7 @@ export function FeaturesSection() {
                   </div>
                   <div className="flex-1">
                     <p className="text-sm text-muted-foreground">Medication reminder</p>
-                    <p className="text-foreground font-medium" style={{ fontFamily: "'Times New Roman', Times, serif" }}>Blood pressure medicine confirmed at 8:15 AM</p>
+                    <p className="text-foreground font-medium">Blood pressure medicine confirmed at 8:15 AM</p>
                   </div>
                 </div>
 
