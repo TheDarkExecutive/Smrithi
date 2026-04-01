@@ -13,10 +13,10 @@ export function AnimatedText({ text, delay = 0 }: AnimatedTextProps) {
 
   return (
     <motion.span
-      className="text-inherit"
+      className="text-white"
       initial="hidden"
       animate="visible"
-      style={{ perspective: 400, display: "inline-block" }}
+      style={{ perspective: 400, display: "inline-block", color: "#ffffff" }}
     >
       {words.map((word, wordIndex) => (
         <span key={wordIndex} style={{ display: "inline-block", whiteSpace: "nowrap" }}>
@@ -36,7 +36,7 @@ export function AnimatedText({ text, delay = 0 }: AnimatedTextProps) {
                   display: "inline-block",
                   transformStyle: "preserve-3d",
                   transformOrigin: "center bottom",
-                  color: "inherit",
+                  color: "#ffffff",
                 }}
               >
                 {char}
