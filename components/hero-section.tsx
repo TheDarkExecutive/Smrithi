@@ -93,11 +93,6 @@ export function HeroSection() {
             <h1 className="font-serif text-[1.75rem] sm:text-[2.25rem] md:text-[2.75rem] lg:text-[3.25rem] xl:text-[3.5rem] font-normal leading-tight mb-6 w-full max-w-3xl text-white text-balance">
               <AnimatedText text={t("hero.tagline")} delay={0.3} />
             </h1>
-            <p
-              className={`text-lg md:text-xl text-foreground dark:text-white max-w-2xl mt-6 backdrop-blur-md bg-white/80 dark:bg-black/50 px-6 py-4 rounded-2xl inline-block transition-all duration-1000 delay-[1200ms] ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
-            >
-              {t("hero.subtitle")}
-            </p>
           </div>
         </div>
       </div>
