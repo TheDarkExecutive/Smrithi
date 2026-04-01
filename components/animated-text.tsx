@@ -13,7 +13,7 @@ export function AnimatedText({ text, delay = 0 }: AnimatedTextProps) {
 
   return (
     <motion.span
-      className="font-bold text-center text-6xl leading-[0.75] tracking-tighter font-serif text-inherit lg:text-9xl"
+      className="text-inherit"
       initial="hidden"
       animate="visible"
       style={{ perspective: 400, display: "inline-block" }}
