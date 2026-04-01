@@ -23,12 +23,6 @@ export function CTASection() {
 
   return (
     <section id="waitlist" className="py-32 px-6 relative overflow-hidden">
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-        <span className="text-[18vw] font-bold font-sans tracking-tighter leading-none text-zinc-100 dark:text-zinc-800 whitespace-nowrap">
-          JOIN US
-        </span>
-      </div>
-
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-normal leading-tight max-w-4xl mx-auto mb-6 font-serif">

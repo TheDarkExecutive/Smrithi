@@ -18,12 +18,6 @@ export function FeaturesSection() {
 
   return (
     <section id="features" className="py-32 px-6 relative overflow-hidden">
-      <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 flex justify-center pointer-events-none z-0">
-        <span className="font-bold text-center text-[20vw] sm:text-[18vw] md:text-[16vw] lg:text-[14vw] leading-none tracking-tighter text-zinc-100 dark:text-zinc-800 whitespace-nowrap">
-          FEATURES
-        </span>
-      </div>
-
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="order-2 lg:order-1">

@@ -2,7 +2,6 @@
 
 import Link from "next/link"
 import { Twitter, Linkedin } from "lucide-react"
-import Image from "next/image"
 import { useLanguage } from "@/contexts/language-context"
 
 const footerLinks = {
@@ -29,16 +28,6 @@ export function Footer() {
 
   return (
     <div className="relative">
-      <div className="absolute -top-[20vw] left-0 right-0 w-full h-[50vw] z-0 overflow-hidden">
-        <Image src="/images/footer-bg.png" alt="Background" fill className="object-cover" priority />
-      </div>
-
-      <div className="absolute -top-[15vw] left-0 right-0 flex items-end justify-center overflow-visible pointer-events-none z-10">
-        <h2 className="font-bold text-center text-[20vw] sm:text-[18vw] md:text-[16vw] lg:text-[14vw] leading-[0.85] tracking-tighter text-white whitespace-nowrap">
-          SMRITHI
-        </h2>
-      </div>
-
       <footer id="contact" className="relative z-20 border-t border-border py-16 px-6 bg-background">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">

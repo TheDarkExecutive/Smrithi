@@ -90,12 +90,6 @@ export function IntegrationsSection() {
 
   return (
     <section id="integrations" className="py-32 px-6 relative overflow-hidden">
-      <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 flex justify-center pointer-events-none z-0">
-        <span className="font-bold text-center text-[14vw] sm:text-[12vw] md:text-[10vw] lg:text-[9vw] leading-none tracking-tighter text-zinc-100 dark:text-zinc-800 whitespace-nowrap">
-          INTEGRATIONS
-        </span>
-      </div>
-
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20">
           <TypewriterText text={t("integrations.title")} />
