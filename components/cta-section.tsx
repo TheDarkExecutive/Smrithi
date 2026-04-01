@@ -1,14 +1,50 @@
 "use client"
 
 import { ArrowUpRight } from "lucide-react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useLanguage } from "@/contexts/language-context"
+
+// Set launch date - 30 days from now (adjust as needed)
+const LAUNCH_DATE = new Date()
+LAUNCH_DATE.setDate(LAUNCH_DATE.getDate() + 30)
+
+function useCountdown(targetDate: Date) {
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  })
+
+  useEffect(() => {
+    const calculateTimeLeft = () => {
+      const difference = targetDate.getTime() - new Date().getTime()
+      
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+          minutes: Math.floor((difference / 1000 / 60) % 60),
+          seconds: Math.floor((difference / 1000) % 60)
+        })
+      }
+    }
+
+    calculateTimeLeft()
+    const timer = setInterval(calculateTimeLeft, 1000)
+
+    return () => clearInterval(timer)
+  }, [targetDate])
+
+  return timeLeft
+}
 
 export function CTASection() {
   const [email, setEmail] = useState("")
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const { t } = useLanguage()
+  const timeLeft = useCountdown(LAUNCH_DATE)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -28,9 +64,39 @@ export function CTASection() {
           <h2 className="text-4xl md:text-5xl font-normal leading-tight max-w-4xl mx-auto mb-6 font-serif">
             {t("cta.title")}
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto mb-10">
+          <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
             {t("cta.subtitle")}
           </p>
+
+          <div className="flex items-center justify-center gap-4 md:gap-6 mb-10">
+            <div className="text-center">
+              <div className="text-3xl md:text-5xl font-light text-foreground tabular-nums">
+                {String(timeLeft.days).padStart(2, '0')}
+              </div>
+              <div className="text-xs text-muted-foreground uppercase tracking-wider mt-1">Days</div>
+            </div>
+            <span className="text-2xl md:text-4xl text-muted-foreground font-light">:</span>
+            <div className="text-center">
+              <div className="text-3xl md:text-5xl font-light text-foreground tabular-nums">
+                {String(timeLeft.hours).padStart(2, '0')}
+              </div>
+              <div className="text-xs text-muted-foreground uppercase tracking-wider mt-1">Hours</div>
+            </div>
+            <span className="text-2xl md:text-4xl text-muted-foreground font-light">:</span>
+            <div className="text-center">
+              <div className="text-3xl md:text-5xl font-light text-foreground tabular-nums">
+                {String(timeLeft.minutes).padStart(2, '0')}
+              </div>
+              <div className="text-xs text-muted-foreground uppercase tracking-wider mt-1">Minutes</div>
+            </div>
+            <span className="text-2xl md:text-4xl text-muted-foreground font-light">:</span>
+            <div className="text-center">
+              <div className="text-3xl md:text-5xl font-light text-foreground tabular-nums">
+                {String(timeLeft.seconds).padStart(2, '0')}
+              </div>
+              <div className="text-xs text-muted-foreground uppercase tracking-wider mt-1">Seconds</div>
+            </div>
+          </div>
 
           {isSubmitted ? (
             <div className="max-w-md mx-auto bg-zinc-50 dark:bg-zinc-800 rounded-2xl p-8 text-center">
