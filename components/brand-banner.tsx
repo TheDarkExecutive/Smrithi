@@ -2,9 +2,9 @@
 
 export function BrandBanner() {
   return (
-    <div className="w-full overflow-hidden pointer-events-none select-none py-12 md:py-16 bg-background dark:bg-zinc-950">
+    <div className="w-full overflow-hidden pointer-events-none select-none py-4 md:py-6 bg-background dark:bg-zinc-950">
       <span
-        className="block font-normal text-[18vw] sm:text-[16vw] md:text-[14vw] lg:text-[12vw] tracking-tight leading-none w-full text-center"
+        className="block font-normal text-[28vw] sm:text-[26vw] md:text-[24vw] lg:text-[22vw] xl:text-[20vw] tracking-tighter leading-none w-full text-center"
         style={{ fontFamily: "'Times New Roman', Times, serif", color: '#C4824A' }}
       >
         SMRITHI
