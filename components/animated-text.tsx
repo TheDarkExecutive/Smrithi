@@ -13,10 +13,10 @@ export function AnimatedText({ text, delay = 0 }: AnimatedTextProps) {
 
   return (
     <motion.span
-      className="font-bold text-center text-6xl leading-[0.75] tracking-tighter font-serif text-black lg:text-9xl"
+      className="text-white"
       initial="hidden"
       animate="visible"
-      style={{ perspective: 400, display: "inline-block" }}
+      style={{ perspective: 400, display: "inline-block", color: "#ffffff" }}
     >
       {words.map((word, wordIndex) => (
         <span key={wordIndex} style={{ display: "inline-block", whiteSpace: "nowrap" }}>
@@ -36,6 +36,7 @@ export function AnimatedText({ text, delay = 0 }: AnimatedTextProps) {
                   display: "inline-block",
                   transformStyle: "preserve-3d",
                   transformOrigin: "center bottom",
+                  color: "#ffffff",
                 }}
               >
                 {char}

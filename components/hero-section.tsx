@@ -1,10 +1,12 @@
 "use client"
 import { useEffect, useState } from "react"
 import { AnimatedText } from "./animated-text"
+import { useLanguage } from "@/contexts/language-context"
 
 export function HeroSection() {
   const [isVisible, setIsVisible] = useState(false)
   const [scrollProgress, setScrollProgress] = useState(0)
+  const { t } = useLanguage()
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -62,51 +64,22 @@ export function HeroSection() {
             height: `${heightVh}vh`,
           }}
         >
-          <video autoPlay loop muted playsInline className="w-full h-full object-cover" src="/images/af7687fd-f2ad-4f2a-96f0-b56fa7d3769c.mp4" />
+          <img src="/images/seniors-lakeside.png" alt="Elderly couple enjoying a peaceful moment by the lake" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-black/30" />
         </div>
       </div>
 
-      <div
-        className="absolute bottom-0 left-0 right-0 w-full overflow-hidden pointer-events-none z-[5] flex items-end justify-center"
-        style={{
-          transform: `translateY(${scrollProgress * 150}px)`,
-          opacity: 1 - scrollProgress * 0.8,
-          height: "100%",
-        }}
-      >
-        <span
-          className="block text-white font-bold text-[20vw] sm:text-[18vw] md:text-[16vw] lg:text-[14vw] tracking-tighter select-none text-center leading-none"
-          style={{ marginBottom: "0" }}
-        >
-          SMRITHI
-        </span>
-      </div>
-
-      <div className="max-w-7xl mx-auto w-full relative z-10">
-        <div className="text-center mb-12">
+      <div className="max-w-7xl mx-auto w-full relative z-10 flex flex-col justify-end min-h-[70vh]">
+        <div className="mb-24 relative">
           <div
-            className={`transition-all duration-1000 delay-[800ms] ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"}`}
+            className={`relative z-[2] transition-all duration-1000 delay-[800ms] text-center ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"}`}
           >
-            <h1 className="font-serif text-[2.5rem] sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5.5rem] xl:text-[6rem] 2xl:text-[7rem] font-normal leading-tight mb-6 w-full px-4 max-w-5xl mx-auto text-balance">
-              <AnimatedText text="A voice companion that adapts to you, not the other way" delay={0.3} />
+            <h1 
+              className="text-[2.5rem] sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5.5rem] xl:text-[6rem] font-normal leading-tight mb-6 w-full max-w-4xl mx-auto text-white text-center"
+              style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+            >
+              <AnimatedText text={t("hero.tagline")} delay={0.3} />
             </h1>
-            <p
-              className={`text-lg md:text-xl text-white/90 max-w-2xl mx-auto mt-8 transition-all duration-1000 delay-[1200ms] ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
-            >
-              One conversational friend that unifies the apps seniors already use
-            </p>
-          </div>
-        </div>
-
-        <div className="flex flex-col items-center justify-center gap-8">
-          <div className="relative">
-            <div
-              className={`relative w-[234px] md:w-[281px] lg:w-[351px] will-change-transform transition-all duration-[1500ms] ease-out delay-500 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[400px]"
-              }`}
-            >
-              <img src="/images/iphone-frame.png" alt="Smrithi App" className="w-full h-auto relative z-10" />
-            </div>
           </div>
         </div>
       </div>

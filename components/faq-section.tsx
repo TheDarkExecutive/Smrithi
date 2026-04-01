@@ -14,7 +14,7 @@ const faqs = [
   {
     question: "How does emergency detection work?",
     answer:
-      "Smrithi monitors for signs of distress through voice patterns and integrates with seniorshield for fall detection and emergency response. When something seems wrong, Smrithi first checks in with the user through conversation. If needed, it automatically alerts designated family members.",
+      "Smrithi primarily uses your phone to detect falls or emergencies through motion sensors and voice pattern analysis. If you have a seniorshield device, Smrithi integrates with it for enhanced fall detection and emergency response. When something seems wrong, Smrithi first checks in with you through conversation. If needed, it automatically alerts your designated family members.",
   },
   {
     question: "What languages does Smrithi support?",
@@ -49,7 +49,7 @@ export function FAQSection() {
             <AccordionItem
               key={index}
               value={`item-${index}`}
-              className="bg-card border border-border rounded-xl px-6 data-[state=open]:border-foreground/30"
+              className="bg-card dark:bg-zinc-900 border border-border rounded-xl px-6 data-[state=open]:border-foreground/30"
             >
               <AccordionTrigger className="text-left text-base font-medium text-foreground hover:no-underline py-5">
                 {faq.question}
