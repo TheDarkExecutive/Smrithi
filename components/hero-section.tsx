@@ -76,7 +76,7 @@ export function HeroSection() {
           >
             <h1 
               className="text-[2.5rem] sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5.5rem] xl:text-[6rem] font-normal leading-tight mb-6 w-full max-w-4xl mx-auto text-white text-center"
-              style={{ fontFamily: "'Times New Roman', Times, serif" }}
+              style={{ fontFamily: "'EB Garamond', Garamond, Georgia, serif" }}
             >
               <AnimatedText text={t("hero.tagline")} delay={0.3} />
             </h1>
