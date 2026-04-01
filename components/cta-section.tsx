@@ -1,42 +1,58 @@
 "use client"
 
 import { ArrowUpRight } from "lucide-react"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { useLanguage } from "@/contexts/language-context"
 
-// Set launch date - 30 days from now (adjust as needed)
-const LAUNCH_DATE = new Date()
-LAUNCH_DATE.setDate(LAUNCH_DATE.getDate() + 30)
-
-function useCountdown(targetDate: Date) {
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0
-  })
+function useRushCount(target: number, duration: number = 2000, suffix: string = "") {
+  const [count, setCount] = useState(0)
+  const [hasStarted, setHasStarted] = useState(false)
+  const elementRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const calculateTimeLeft = () => {
-      const difference = targetDate.getTime() - new Date().getTime()
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !hasStarted) {
+          setHasStarted(true)
+        }
+      },
+      { threshold: 0.5 }
+    )
+
+    if (elementRef.current) {
+      observer.observe(elementRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [hasStarted])
+
+  useEffect(() => {
+    if (!hasStarted) return
+
+    const startTime = Date.now()
+    const startValue = 0
+
+    const animate = () => {
+      const elapsed = Date.now() - startTime
+      const progress = Math.min(elapsed / duration, 1)
       
-      if (difference > 0) {
-        setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-          minutes: Math.floor((difference / 1000 / 60) % 60),
-          seconds: Math.floor((difference / 1000) % 60)
-        })
+      // Easing function for rush effect - starts fast, slows at end
+      const easeOutExpo = 1 - Math.pow(2, -10 * progress)
+      
+      const currentValue = Math.floor(startValue + (target - startValue) * easeOutExpo)
+      setCount(currentValue)
+
+      if (progress < 1) {
+        requestAnimationFrame(animate)
+      } else {
+        setCount(target)
       }
     }
 
-    calculateTimeLeft()
-    const timer = setInterval(calculateTimeLeft, 1000)
+    requestAnimationFrame(animate)
+  }, [hasStarted, target, duration])
 
-    return () => clearInterval(timer)
-  }, [targetDate])
-
-  return timeLeft
+  return { count, elementRef, suffix }
 }
 
 export function CTASection() {
@@ -44,7 +60,10 @@ export function CTASection() {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const { t } = useLanguage()
-  const timeLeft = useCountdown(LAUNCH_DATE)
+  
+  const seniors = useRushCount(60, 1500)
+  const platforms = useRushCount(3, 1200)
+  const companion = useRushCount(1, 800)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -64,39 +83,9 @@ export function CTASection() {
           <h2 className="text-4xl md:text-5xl font-normal leading-tight max-w-4xl mx-auto mb-6 font-serif">
             {t("cta.title")}
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
+          <p className="text-muted-foreground max-w-2xl mx-auto mb-10">
             {t("cta.subtitle")}
           </p>
-
-          <div className="flex items-center justify-center gap-4 md:gap-6 mb-10">
-            <div className="text-center">
-              <div className="text-3xl md:text-5xl font-light text-foreground tabular-nums">
-                {String(timeLeft.days).padStart(2, '0')}
-              </div>
-              <div className="text-xs text-muted-foreground uppercase tracking-wider mt-1">Days</div>
-            </div>
-            <span className="text-2xl md:text-4xl text-muted-foreground font-light">:</span>
-            <div className="text-center">
-              <div className="text-3xl md:text-5xl font-light text-foreground tabular-nums">
-                {String(timeLeft.hours).padStart(2, '0')}
-              </div>
-              <div className="text-xs text-muted-foreground uppercase tracking-wider mt-1">Hours</div>
-            </div>
-            <span className="text-2xl md:text-4xl text-muted-foreground font-light">:</span>
-            <div className="text-center">
-              <div className="text-3xl md:text-5xl font-light text-foreground tabular-nums">
-                {String(timeLeft.minutes).padStart(2, '0')}
-              </div>
-              <div className="text-xs text-muted-foreground uppercase tracking-wider mt-1">Minutes</div>
-            </div>
-            <span className="text-2xl md:text-4xl text-muted-foreground font-light">:</span>
-            <div className="text-center">
-              <div className="text-3xl md:text-5xl font-light text-foreground tabular-nums">
-                {String(timeLeft.seconds).padStart(2, '0')}
-              </div>
-              <div className="text-xs text-muted-foreground uppercase tracking-wider mt-1">Seconds</div>
-            </div>
-          </div>
 
           {isSubmitted ? (
             <div className="max-w-md mx-auto bg-zinc-50 dark:bg-zinc-800 rounded-2xl p-8 text-center">
@@ -142,17 +131,23 @@ export function CTASection() {
         </div>
 
         <div className="flex flex-col md:flex-row items-center justify-center gap-16 mt-20">
-          <div className="text-center">
-            <p className="text-6xl md:text-7xl font-light text-foreground">60M+</p>
-            <p className="text-xs text-muted-foreground uppercase tracking-wider">Seniors in India</p>
+          <div className="text-center" ref={seniors.elementRef}>
+            <p className="text-6xl md:text-7xl font-light text-foreground tabular-nums">
+              {seniors.count}M+
+            </p>
+            <p className="text-xs text-muted-foreground uppercase tracking-wider mt-2">Seniors in India</p>
           </div>
-          <div className="text-center">
-            <p className="text-6xl md:text-7xl font-light text-foreground">3+</p>
-            <p className="text-xs text-muted-foreground uppercase tracking-wider">Platform integrations</p>
+          <div className="text-center" ref={platforms.elementRef}>
+            <p className="text-6xl md:text-7xl font-light text-foreground tabular-nums">
+              {platforms.count}+
+            </p>
+            <p className="text-xs text-muted-foreground uppercase tracking-wider mt-2">Platform integrations</p>
           </div>
-          <div className="text-center">
-            <p className="text-6xl md:text-7xl font-light text-foreground">1</p>
-            <p className="text-xs text-muted-foreground uppercase tracking-wider">Voice companion</p>
+          <div className="text-center" ref={companion.elementRef}>
+            <p className="text-6xl md:text-7xl font-light text-foreground tabular-nums">
+              {companion.count}
+            </p>
+            <p className="text-xs text-muted-foreground uppercase tracking-wider mt-2">Voice companion</p>
           </div>
         </div>
       </div>
