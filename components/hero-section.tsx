@@ -82,26 +82,28 @@ export function HeroSection() {
         </span>
       </div>
 
-      <div className="max-w-7xl mx-auto w-full relative z-10">
-        <div className="text-center mb-12">
-          <div
-            className={`transition-all duration-1000 delay-[800ms] ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"}`}
-          >
-            <h1 className="font-serif text-[2.5rem] sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5.5rem] xl:text-[6rem] 2xl:text-[7rem] font-normal leading-tight mb-6 w-full px-4 max-w-5xl mx-auto text-balance">
-              <AnimatedText text="A voice companion that adapts to you, not the other way" delay={0.3} />
-            </h1>
-            <p
-              className={`text-lg md:text-xl text-white/90 max-w-2xl mx-auto mt-8 transition-all duration-1000 delay-[1200ms] ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
-            >
-              One conversational friend that unifies the apps seniors already use
-            </p>
-          </div>
-        </div>
-
-        <div className="flex flex-col items-center justify-center gap-8">
-          <div className="relative">
+      <div className="max-w-7xl mx-auto w-full relative z-10 flex flex-col min-h-[80vh] justify-end pb-32">
+        <div className="flex flex-col lg:flex-row items-end justify-between gap-8 lg:gap-12">
+          <div className="flex-1 text-left max-w-2xl">
             <div
-              className={`relative w-[234px] md:w-[281px] lg:w-[351px] will-change-transform transition-all duration-[1500ms] ease-out delay-500 ${
+              className={`transition-all duration-1000 delay-[800ms] ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"}`}
+            >
+              <h1 className="font-serif text-[2rem] sm:text-[2.5rem] md:text-[3rem] lg:text-[3.5rem] xl:text-[4rem] font-normal leading-tight mb-6 text-white text-balance">
+                <AnimatedText text="A voice companion that adapts to you, not the other way" delay={0.3} />
+              </h1>
+              <div
+                className={`inline-block backdrop-blur-md bg-white/20 border border-white/30 rounded-2xl px-6 py-4 mt-4 transition-all duration-1000 delay-[1200ms] ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+              >
+                <p className="text-lg md:text-xl text-white">
+                  One conversational friend that unifies the apps seniors already use
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex-shrink-0">
+            <div
+              className={`relative w-[200px] md:w-[240px] lg:w-[280px] will-change-transform transition-all duration-[1500ms] ease-out delay-500 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[400px]"
               }`}
             >

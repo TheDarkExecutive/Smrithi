@@ -14,7 +14,7 @@ const faqs = [
   {
     question: "How does emergency detection work?",
     answer:
-      "Smrithi monitors for signs of distress through voice patterns and integrates with seniorshield for fall detection and emergency response. When something seems wrong, Smrithi first checks in with the user through conversation. If needed, it automatically alerts designated family members.",
+      "Smrithi primarily uses your phone to detect falls or emergencies through motion sensors and voice pattern analysis. If you have a seniorshield device, Smrithi integrates with it for enhanced fall detection and emergency response. When something seems wrong, Smrithi first checks in with you through conversation. If needed, it automatically alerts your designated family members.",
   },
   {
     question: "What languages does Smrithi support?",

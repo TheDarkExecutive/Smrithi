@@ -48,8 +48,8 @@ function AnimatedIcon({ Icon, delay = 0 }: { Icon: React.ElementType; delay?: nu
   return (
     <div ref={iconRef} className="relative">
       <Icon
-        className={`text-foreground h-12 w-12 ${isVisible ? "animate-draw-icon" : ""}`}
-        strokeWidth={1}
+        className={`text-foreground h-10 w-10 ${isVisible ? "animate-draw-icon" : ""}`}
+        strokeWidth={1.5}
         style={{
           strokeDasharray: isVisible ? undefined : 1000,
           strokeDashoffset: isVisible ? undefined : 1000,
@@ -98,22 +98,30 @@ export function HowItWorksSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
           {steps.map((item, index) => (
             <div
               key={index}
-              className="group p-8 rounded-3xl hover:bg-zinc-50 transition-colors duration-300 text-center"
+              className="group relative p-8 rounded-3xl text-center backdrop-blur-xl bg-white/60 border border-white/40 shadow-lg hover:shadow-xl hover:bg-white/80 transition-all duration-300"
+              style={{
+                boxShadow: "0 8px 32px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.6)",
+              }}
             >
-              <div className="mb-4">
-                <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                  Step {item.step}
-                </span>
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-white/40 via-transparent to-transparent pointer-events-none" />
+              <div className="relative z-10">
+                <div className="mb-4">
+                  <span className="inline-block px-3 py-1 text-xs font-medium text-muted-foreground uppercase tracking-wider bg-white/50 rounded-full border border-white/60">
+                    Step {item.step}
+                  </span>
+                </div>
+                <div className="mb-6 flex justify-center">
+                  <div className="w-16 h-16 rounded-2xl bg-white/70 border border-white/50 flex items-center justify-center shadow-sm">
+                    <AnimatedIcon Icon={item.icon} delay={index * 0.2} />
+                  </div>
+                </div>
+                <h3 className="text-xl font-medium mb-3 text-foreground">{item.title}</h3>
+                <p className="text-muted-foreground leading-relaxed text-sm">{item.description}</p>
               </div>
-              <div className="mb-6 flex justify-center">
-                <AnimatedIcon Icon={item.icon} delay={index * 0.2} />
-              </div>
-              <h3 className="text-xl font-medium mb-3 text-foreground">{item.title}</h3>
-              <p className="text-muted-foreground leading-relaxed text-sm">{item.description}</p>
             </div>
           ))}
         </div>
