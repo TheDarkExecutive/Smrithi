@@ -75,7 +75,7 @@ export function HeroSection() {
             className={`relative z-[2] transition-all duration-1000 delay-[800ms] text-center ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"}`}
           >
             <h1 
-              className="text-[1.75rem] sm:text-[2.25rem] md:text-[2.75rem] lg:text-[3.25rem] xl:text-[3.5rem] font-normal leading-tight mb-6 w-full max-w-3xl mx-auto text-white"
+              className="text-[2.5rem] sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5.5rem] xl:text-[6rem] font-normal leading-tight mb-6 w-full max-w-4xl mx-auto text-white text-center"
               style={{ fontFamily: "'Times New Roman', Times, serif" }}
             >
               <AnimatedText text={t("hero.tagline")} delay={0.3} />
