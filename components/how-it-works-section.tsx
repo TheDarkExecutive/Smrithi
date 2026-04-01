@@ -2,24 +2,25 @@
 
 import { Link2, MessageCircle, Heart } from "lucide-react"
 import { useState, useEffect, useRef } from "react"
+import { useLanguage } from "@/contexts/language-context"
 
 const steps = [
   {
     icon: Link2,
     step: "01",
-    title: "Integrates with trusted platforms",
+    titleKey: "howItWorks.step1.title",
     description: "Smrithi connects with the apps and services seniors already know and trust, bringing them together into one unified experience.",
   },
   {
     icon: MessageCircle,
     step: "02",
-    title: "Conversational voice interface",
+    titleKey: "howItWorks.step2.title",
     description: "No menus to navigate, no buttons to find. Just natural conversation. Smrithi learns your preferences and communication style over time.",
   },
   {
     icon: Heart,
     step: "03",
-    title: "Unified companion for daily life",
+    titleKey: "howItWorks.step3.title",
     description: "Medication reminders with voice confirmation. Walks and conversations, not just timers. Emergency detection with alerts to loved ones.",
   },
 ]
@@ -60,10 +61,12 @@ function AnimatedIcon({ Icon, delay = 0 }: { Icon: React.ElementType; delay?: nu
 }
 
 export function HowItWorksSection() {
+  const { t } = useLanguage()
+
   return (
     <section id="how-it-works" className="py-32 px-6 relative overflow-hidden">
       <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 flex justify-center pointer-events-none z-0">
-        <span className="font-bold text-center text-[16vw] sm:text-[14vw] md:text-[12vw] lg:text-[10vw] leading-none tracking-tighter text-zinc-100 whitespace-nowrap">
+        <span className="font-bold text-center text-[16vw] sm:text-[14vw] md:text-[12vw] lg:text-[10vw] leading-none tracking-tighter text-zinc-100 dark:text-zinc-800 whitespace-nowrap">
           HOW IT WORKS
         </span>
       </div>
@@ -91,10 +94,10 @@ export function HowItWorksSection() {
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-normal mb-6 text-balance font-serif">
-            Simple by design
+            {t("howItWorks.title")}
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Smrithi works the way conversation works. No learning curve, no technical knowledge required.
+            {t("howItWorks.subtitle")}
           </p>
         </div>
 
@@ -102,7 +105,7 @@ export function HowItWorksSection() {
           {steps.map((item, index) => (
             <div
               key={index}
-              className="group p-8 rounded-3xl hover:bg-zinc-50 transition-colors duration-300 text-center"
+              className="group p-8 rounded-3xl backdrop-blur-xl bg-white/60 dark:bg-zinc-900/60 border border-white/50 dark:border-zinc-700/50 shadow-lg hover:shadow-xl transition-all duration-300 text-center"
             >
               <div className="mb-4">
                 <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
@@ -112,7 +115,7 @@ export function HowItWorksSection() {
               <div className="mb-6 flex justify-center">
                 <AnimatedIcon Icon={item.icon} delay={index * 0.2} />
               </div>
-              <h3 className="text-xl font-medium mb-3 text-foreground">{item.title}</h3>
+              <h3 className="text-xl font-medium mb-3 text-foreground">{t(item.titleKey)}</h3>
               <p className="text-muted-foreground leading-relaxed text-sm">{item.description}</p>
             </div>
           ))}

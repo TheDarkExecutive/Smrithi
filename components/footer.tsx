@@ -1,13 +1,16 @@
+"use client"
+
 import Link from "next/link"
 import { Twitter, Linkedin } from "lucide-react"
 import Image from "next/image"
+import { useLanguage } from "@/contexts/language-context"
 
 const footerLinks = {
   product: [
-    { label: "Features", href: "#features" },
-    { label: "How It Works", href: "#how-it-works" },
-    { label: "Integrations", href: "#integrations" },
-    { label: "FAQ", href: "#faq" },
+    { labelKey: "nav.features", href: "#features" },
+    { labelKey: "nav.howItWorks", href: "#how-it-works" },
+    { labelKey: "nav.integrations", href: "#integrations" },
+    { labelKey: "nav.faq", href: "#faq" },
   ],
   company: [
     { label: "About", href: "#" },
@@ -22,6 +25,8 @@ const footerLinks = {
 }
 
 export function Footer() {
+  const { t } = useLanguage()
+
   return (
     <div className="relative">
       <div className="absolute -top-[20vw] left-0 right-0 w-full h-[50vw] z-0 overflow-hidden">
@@ -53,7 +58,7 @@ export function Footer() {
                 </svg>
                 <span className="text-base font-medium text-foreground">Smrithi</span>
               </Link>
-              <p className="text-sm text-muted-foreground mb-6">A voice companion that adapts to you.</p>
+              <p className="text-sm text-muted-foreground mb-6">{t("footer.tagline")}</p>
               <div className="flex gap-4">
                 <Link
                   href="#"
@@ -71,7 +76,7 @@ export function Footer() {
             </div>
 
             <div>
-              <h4 className="text-sm font-medium text-foreground mb-4 uppercase tracking-wider">Product</h4>
+              <h4 className="text-sm font-medium text-foreground mb-4 uppercase tracking-wider">{t("footer.product")}</h4>
               <ul className="space-y-3">
                 {footerLinks.product.map((link, i) => (
                   <li key={i}>
@@ -79,7 +84,7 @@ export function Footer() {
                       href={link.href}
                       className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                     >
-                      {link.label}
+                      {t(link.labelKey)}
                     </Link>
                   </li>
                 ))}
@@ -87,7 +92,7 @@ export function Footer() {
             </div>
 
             <div>
-              <h4 className="text-sm font-medium text-foreground mb-4 uppercase tracking-wider">Company</h4>
+              <h4 className="text-sm font-medium text-foreground mb-4 uppercase tracking-wider">{t("footer.company")}</h4>
               <ul className="space-y-3">
                 {footerLinks.company.map((link, i) => (
                   <li key={i}>
@@ -120,7 +125,7 @@ export function Footer() {
           </div>
 
           <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-xs text-muted-foreground">2026 Smrithi. All rights reserved.</p>
+            <p className="text-xs text-muted-foreground">2026 Smrithi. {t("footer.rights")}</p>
             <p className="text-xs text-muted-foreground">Made with care for seniors in India</p>
           </div>
         </div>
