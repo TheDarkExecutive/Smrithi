@@ -65,12 +65,6 @@ export function HowItWorksSection() {
 
   return (
     <section id="how-it-works" className="py-32 px-6 relative overflow-hidden">
-      <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 flex justify-center pointer-events-none z-0">
-        <span className="font-bold text-center text-[16vw] sm:text-[14vw] md:text-[12vw] lg:text-[10vw] leading-none tracking-tighter text-zinc-100 dark:text-zinc-800 whitespace-nowrap">
-          HOW IT WORKS
-        </span>
-      </div>
-
       <style jsx>{`
         @keyframes drawPath {
           from {
