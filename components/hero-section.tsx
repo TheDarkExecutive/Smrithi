@@ -72,22 +72,22 @@ export function HeroSection() {
       <div className="max-w-7xl mx-auto w-full relative z-10 flex flex-col justify-end min-h-[70vh]">
         <div className="mb-24 relative">
           <div
-            className="absolute -bottom-16 left-0 right-0 overflow-hidden pointer-events-none z-[1]"
+            className="absolute -bottom-16 left-0 right-0 overflow-hidden pointer-events-none z-[1] text-center"
             style={{
               transform: `translateY(${scrollProgress * 100}px)`,
               opacity: 1 - scrollProgress * 0.8,
             }}
           >
             <span
-              className="block text-white/20 font-bold text-[18vw] sm:text-[16vw] md:text-[14vw] lg:text-[12vw] tracking-tighter select-none leading-none"
+              className="block text-white font-bold text-[18vw] sm:text-[16vw] md:text-[14vw] lg:text-[12vw] tracking-tighter select-none leading-none"
             >
               SMRITHI
             </span>
           </div>
           <div
-            className={`relative z-[2] transition-all duration-1000 delay-[800ms] ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"}`}
+            className={`relative z-[2] transition-all duration-1000 delay-[800ms] text-center ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"}`}
           >
-            <h1 className="font-serif text-[1.75rem] sm:text-[2.25rem] md:text-[2.75rem] lg:text-[3.25rem] xl:text-[3.5rem] font-normal leading-tight mb-6 w-full max-w-3xl text-white text-justify">
+            <h1 className="font-serif text-[1.75rem] sm:text-[2.25rem] md:text-[2.75rem] lg:text-[3.25rem] xl:text-[3.5rem] font-light leading-tight mb-6 w-full max-w-3xl mx-auto text-white">
               <AnimatedText text={t("hero.tagline")} delay={0.3} />
             </h1>
           </div>
