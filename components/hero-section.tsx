@@ -62,7 +62,7 @@ export function HeroSection() {
             height: `${heightVh}vh`,
           }}
         >
-              <img src="/images/seniors-lakeside.png" alt="Elderly couple enjoying a peaceful moment by the lake" className="w-full h-full object-cover" />
+          <video autoPlay loop muted playsInline className="w-full h-full object-cover" src="/images/af7687fd-f2ad-4f2a-96f0-b56fa7d3769c.mp4" />
         </div>
       </div>
 
