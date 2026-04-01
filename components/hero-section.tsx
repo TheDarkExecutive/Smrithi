@@ -72,20 +72,6 @@ export function HeroSection() {
       <div className="max-w-7xl mx-auto w-full relative z-10 flex flex-col justify-end min-h-[70vh]">
         <div className="mb-24 relative">
           <div
-            className="absolute -bottom-8 left-0 right-0 overflow-hidden pointer-events-none z-[1] w-full"
-            style={{
-              transform: `translateY(${scrollProgress * 100}px)`,
-              opacity: 1 - scrollProgress * 0.8,
-            }}
-          >
-            <span
-              className="block text-white font-normal text-[22vw] sm:text-[20vw] md:text-[18vw] lg:text-[16vw] tracking-tight select-none leading-none w-full text-center"
-              style={{ fontFamily: "'Times New Roman', Times, serif" }}
-            >
-              SMRITHI
-            </span>
-          </div>
-          <div
             className={`relative z-[2] transition-all duration-1000 delay-[800ms] text-center ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"}`}
           >
             <h1 
@@ -96,6 +82,15 @@ export function HeroSection() {
             </h1>
           </div>
         </div>
+      </div>
+
+      <div className="w-full overflow-hidden pointer-events-none select-none py-8 bg-background dark:bg-zinc-950">
+        <span
+          className="block font-normal text-[18vw] sm:text-[16vw] md:text-[14vw] lg:text-[12vw] tracking-tight leading-none w-full text-center"
+          style={{ fontFamily: "'Times New Roman', Times, serif", color: '#C4824A' }}
+        >
+          SMRITHI
+        </span>
       </div>
     </section>
   )
